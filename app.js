@@ -44,3 +44,9 @@ app.get('/hello/:userName', hello.view);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+var index = require('./routes/index');
+var project = require('./routes/project');
+
+app.get('/', index.view);
+app.get("/project/:name", project.viewProject);
